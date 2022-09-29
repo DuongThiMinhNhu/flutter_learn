@@ -9,13 +9,13 @@ class CartStarted extends CartEvent{
   List<Object> get props => [];
 }
 class CartProductAdded extends CartEvent{
-  final Product product;
+  final Productt product;
   const CartProductAdded({required this.product});
   @override
   List<Object> get props => [product];
 }
 class CartProductRemoved extends CartEvent{
-  final Product product;
+  final Productt product;
   const CartProductRemoved({required this.product});
   @override
   List<Object> get props => [product];

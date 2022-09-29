@@ -17,12 +17,12 @@ class CatalogScreen extends StatelessWidget {
   const CatalogScreen({required this.category});
   @override
   Widget build(BuildContext context) {
-    final List<Product> categoryProducts = Product.products.where((product) => product.category == category.name).toList();
+    final List<Productt> categoryProducts = Productt.products.where((product) => product.category == category.name).toList();
     return Scaffold(
       appBar: CustomAppBar(
         title: category.name,
       ),
-      bottomNavigationBar: CustomNavBar(),
+      bottomNavigationBar: CustomNavBar(screen: routeName,),
       body: GridView.builder(
         padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

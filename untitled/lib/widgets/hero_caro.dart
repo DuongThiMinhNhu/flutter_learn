@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled/model/model.dart';
 class HeroCarouselCard extends StatelessWidget{
   final Categorys ? category;
-  final Product ? product;
+  final Productt ? product;
   HeroCarouselCard({this.category,this.product});
   @override
   Widget build(BuildContext context) {

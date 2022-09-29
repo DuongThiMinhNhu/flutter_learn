@@ -7,7 +7,7 @@ import 'package:untitled/model/model.dart';
 import '../blocs/wishlist/wishlist_bloc.dart';
 
 class ProductCart extends StatelessWidget {
-  final Product product;
+  final Productt product;
   final double widthFactor;
   final double leftPosition;
   final bool isWishlist;

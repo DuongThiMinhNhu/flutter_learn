@@ -5,7 +5,7 @@ import 'package:untitled/model/product.dart';
 import 'package:untitled/blocs/cart/cart_bloc.dart';
 
 class CartProductCard extends StatelessWidget {
-  final Product product;
+  final Productt product;
   final int quantity;
   const CartProductCard({Key? key, required this.product,required this.quantity}) : super(key: key);
   @override

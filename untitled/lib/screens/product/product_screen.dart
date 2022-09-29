@@ -8,14 +8,14 @@ import 'package:untitled/blocs/cart/cart_bloc.dart';
 
 class ProductScreen extends StatelessWidget {
   static const String routeName = '/product';
-  static Route route({required Product product}) {
+  static Route route({required Productt product}) {
     return MaterialPageRoute(
       settings: RouteSettings(name: routeName),
       builder: (_) => ProductScreen(product: product),
     );
   }
 
-  final Product product;
+  final Productt product;
   ProductScreen({required this.product});
 
   @override
@@ -24,52 +24,7 @@ class ProductScreen extends StatelessWidget {
       appBar: CustomAppBar(
         title: product.name,
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.black,
-        child: Container(
-          height: 70,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.share),
-                color: Colors.white,
-              ),
-              BlocBuilder<WishlistBloc, WishlistState>(
-                  builder: (context, state) {
-                return IconButton(
-                  onPressed: () {
-                    context
-                        .read<WishlistBloc>()
-                        .add(AddWishlistProduct(product));
-                    final snackBar =
-                        SnackBar(content: Text("Added to your Wishlist!!"));
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                  },
-                  icon: Icon(Icons.favorite),
-                  color: Colors.white,
-                );
-              }),
-              BlocBuilder<CartBloc, CartState>(
-                  builder: (context, state) {
-                return ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: Colors.white),
-                    onPressed: () {
-                      context.read<CartBloc>().add(CartProductAdded(product: product));
-                      final snackBar =
-                          SnackBar(content: Text("Added to product !!"));
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    },
-                    child: Text(
-                      'ADD TO CART',
-                      style: Theme.of(context).textTheme.headline3!,
-                    ));
-              }),
-            ],
-          ),
-        ),
-      ),
+      bottomNavigationBar: CustomNavBar(screen: routeName,productt: product,),
       body: ListView(
         children: [
           CarouselSlider(

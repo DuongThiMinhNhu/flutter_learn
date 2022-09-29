@@ -1,6 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
-class Product extends Equatable {
+class Productt extends Equatable {
   final String name;
   final String category;
   final String imageUrl;
@@ -8,20 +9,32 @@ class Product extends Equatable {
   final bool isRecommended;
   final bool isPopular;
 
-  Product({
-    required this.name,
+  Productt({
     required this.category,
     required this.imageUrl,
-    required this.price,
     required this.isRecommended,
     required this.isPopular,
+    required this.name,
+    required this.price,
   });
   @override
   List<Object?> get props =>
-      [name, category, imageUrl, price, isRecommended, isPopular];
+      [category, imageUrl, isRecommended, isPopular,name, price,];
 
-  static List<Product> products = [
-    Product(
+  static Productt fromSnapshot(DocumentSnapshot snap) {
+    Productt product = Productt(
+      name: snap['name'],
+      category: snap['category'],
+      imageUrl: snap['imageUrl'],
+      price: snap['price'].toDouble(),
+      isRecommended: snap['isRecommended'],
+      isPopular: snap['isPopular'],
+    );
+    return product;
+  }
+
+  static List<Productt> products = [
+    Productt(
         name: "Soft Drink #1",
         category: 'Soft Drink',
         imageUrl:
@@ -29,7 +42,7 @@ class Product extends Equatable {
         price: 21.0,
         isRecommended: true,
         isPopular: false),
-    Product(
+    Productt(
         name: "Soft Drink #2",
         category: 'Soft Drink',
         imageUrl:
@@ -37,7 +50,7 @@ class Product extends Equatable {
         price: 19.0,
         isRecommended: false,
         isPopular: true),
-    Product(
+    Productt(
         name: "Smoothies #1",
         category: 'Smoothies',
         imageUrl:
@@ -45,7 +58,7 @@ class Product extends Equatable {
         price: 23.0,
         isRecommended: true,
         isPopular: true),
-    Product(
+    Productt(
         name: "Smoothies #2",
         category: 'Smoothies',
         imageUrl:
@@ -53,44 +66,12 @@ class Product extends Equatable {
         price: 22.0,
         isRecommended: true,
         isPopular: false),
-    Product(
+    Productt(
         name: "Smoothies #3",
         category: 'Smoothies',
         imageUrl:
             'https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2021051117211990262/detail/menueditor_item_910bd1f5dcfd4983a34bb4ccb754fc4d_1620753580055398347.webp',
         price: 21.0,
-        isRecommended: true,
-        isPopular: true),
-    Product(
-        name: "Water #3",
-        category: 'Water',
-        imageUrl:
-            'https://cachnauche.com/uploads/c15-tra-sua-khoai-mon.png',
-        price: 18.0,
-        isRecommended: false,
-        isPopular: false),
-    Product(
-        name: "Water #1",
-        category: 'Water',
-        imageUrl:
-            'https://quancaphe.vn/wp-content/uploads/2022/01/img_61d834f3c29b2.png',
-        price: 17.0,
-        isRecommended: false,
-        isPopular: true),
-    Product(
-        name: "Water #2",
-        category: 'Water',
-        imageUrl:
-            'https://phucgiaan.com/wp-content/uploads/2022/03/pudding-tra-sua-thai-xanh-anansteacake-20k-300x300.jpg',
-        price: 20.0,
-        isRecommended: false,
-        isPopular: true),
-    Product(
-        name: "Soft Drink #4",
-        category: 'Soft Drink',
-        imageUrl:
-            'https://toplist.vn/images/800px/milk-tea-land-tra-sua-dinh-duong-516565.jpg',
-        price: 12.0,
         isRecommended: true,
         isPopular: true),
   ];

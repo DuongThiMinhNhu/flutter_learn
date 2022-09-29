@@ -6,13 +6,13 @@ abstract class WishlisEvent extends Equatable{
 }
 class StartWishlist extends WishlisEvent{}
 class AddWishlistProduct extends WishlisEvent{
-  final Product product;
+  final Productt product;
   const AddWishlistProduct(this.product);
   @override
   List<Object> get props => [product];
 }
 class RemoveWishlistProduct extends WishlisEvent{
- final Product product;
+ final Productt product;
  const RemoveWishlistProduct(this.product);
  @override
  List<Object> get props => [product];

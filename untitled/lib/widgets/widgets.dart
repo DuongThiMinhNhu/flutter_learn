@@ -5,3 +5,4 @@ export 'product_cart.dart';
 export 'product_carousel.dart';
 export 'hero_caro.dart';
 export 'cart_product_card.dart';
+export 'order_summary.dart';

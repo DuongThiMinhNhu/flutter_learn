@@ -5,7 +5,7 @@ import 'package:untitled/model/model.dart';
 import 'package:untitled/widgets/widgets.dart';
 
 class ProductCarousel extends StatelessWidget {
-  final List<Product> products;
+  final List<Productt> products;
   const ProductCarousel({Key? key, required this.products}) : super(key: key);
 
   @override
